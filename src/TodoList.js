@@ -36,13 +36,16 @@ function TodoList() {
    * @param {TodoEntry} changedTodo
    */
   const updateTodo = (changedTodo) => {
-    const newTodos = todosRef.current;
+    // Create a copy of the current state
+    const newTodos = [...todosRef.current];
 
     // Update the changed todo entry
     const todoId = newTodos.findIndex((todo) => {
       return todo.id === changedTodo.id;
     });
     newTodos[todoId] = changedTodo;
+    // Set the reference to the modified copy
+    todosRef.current = newTodos;
     setTodos(newTodos);
     saveTodos();
   };
