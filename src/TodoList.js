@@ -37,7 +37,6 @@ function TodoList() {
    */
   const updateTodo = (changedTodo) => {
     const newTodos = todosRef.current;
-    console.log('updated');
 
     // Update the changed todo entry
     const todoId = newTodos.findIndex((todo) => {
